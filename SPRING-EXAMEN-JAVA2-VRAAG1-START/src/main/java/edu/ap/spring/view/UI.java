@@ -24,6 +24,7 @@ public class UI implements InitializingBean {
 	private JLabel questionLabel, answer;
 	private JTextField questionText;
 	private JButton btnGetAnswer;
+	private JPanel controlpanel;
 
 
 	public UI() {}
@@ -32,8 +33,13 @@ public class UI implements InitializingBean {
 	    jFrame = new JFrame("The Magnificent Eight-Ball");
 	    jFrame.setLayout(new FlowLayout());
 
+	    controlpanel = new JPanel();
+	    controlpanel.setLayout(new GridLayout(3,2));
+
 	    questionLabel = new JLabel("Ask your question mortal :");
 	    questionText = new JTextField(15);
+
+	    answer = new JLabel("");
 
         btnGetAnswer = new JButton();
 	    btnGetAnswer.setText("What do you think o mighty Eight Ball?");
@@ -45,6 +51,12 @@ public class UI implements InitializingBean {
             }
         });
 
+	    controlpanel.add(questionLabel);
+	    controlpanel.add(answer);
+	    controlpanel.add(questionText);
+	    controlpanel.add(btnGetAnswer);
+
+        jFrame.add(controlpanel);
 
 	    jFrame.setSize(400,400);
 	    jFrame.setLocationRelativeTo(null);
